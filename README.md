@@ -5,7 +5,7 @@ A Raspberry Pi weather station and air quality monitor.
 
 This is a modified version of the original code for the project. The original code is located at http://airpi.es The spotlight version is located at http://spotlight16.dow.catholic.edu.au
 
-Currently it is split into airpi.py, as well as multiple input and multiple output plugins. airpi.py collects data from each of the input plugins specified in sensors.cfg, and then passes the data provided by them to each output defined in outputs.cfg. The code for each sensor plugin is contained in the 'sensors' folder and the code for each output plugin in the 'outputs' folder.
+Currently it is split into airpi.py, as well as multiple input and multiple output plugins. airpi.py collects data from each of the input plugins specified in sensors.cfg, and then passes the data provided by them to each output defined in outputs.cfg. The code for each sensor plugin is contained in the 'sensors' folder and the code for each output plugin in the 'outputs' folder. The original code did not use thingspeak this version does.
 
 All of this code is based on the work of Tom Hartley and team. I have only modifed it to suit the Spotlight competition. I have decided to for the code as this version will probably not go further
 
@@ -79,8 +79,20 @@ You should see this as the output:
 If not, run:
 
 `sudo i2cdetect -y 1`
-
+```
 and you should see the above.  This tells you if your board is version 0 or 1.  This is important for the next step.
+
+##### Get the Adafruit DHT code
+For all platforms (Raspberry Pi and Beaglebone Black) make sure your system is able to compile Python extensions. On Raspbian or Beaglebone Black's Debian/Ubuntu image you can ensure your system is ready by executing:
+```
+sudo apt-get update
+sudo apt-get install build-essential python-dev
+```
+Go to https://github.com/adafruit/Adafruit_Python_DHT Install the library by downloading with the download link on the right, unzipping the archive, and executing:
+```
+sudo python setup.py install
+```
+
 
 ### Get The AirPi Code
 
@@ -88,7 +100,7 @@ Clone this repo into your git directory (or wherever you want):
 
 ```
 cd ~/git
-git clone https://github.com/tomhartley/AirPi.git
+git clone https://github.com/alanibbett/Spotlight-AirPi.git
 cd AirPi
 ```
 
