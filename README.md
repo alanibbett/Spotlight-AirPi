@@ -5,7 +5,7 @@ A Raspberry Pi weather station and air quality monitor.
 
 This is a modified version of the original code for the project. The original code is located at http://airpi.es The spotlight version is located at http://spotlight16.dow.catholic.edu.au
 
-Currently it is split into airpi.py, as well as multiple input and multiple output plugins. airpi.py collects data from each of the input plugins specified in sensors.cfg, and then passes the data provided by them to each output defined in outputs.cfg. The code for each sensor plugin is contained in the 'sensors' folder and the code for each output plugin in the 'outputs' folder.
+Currently it is split into airpi.py, as well as multiple input and multiple output plugins. airpi.py collects data from each of the input plugins specified in sensors.cfg, and then passes the data provided by them to each output defined in outputs.cfg. The code for each sensor plugin is contained in the 'sensors' folder and the code for each output plugin in the 'outputs' folder. The original code did not use thingspeak this version does.
 
 All of this code is based on the work of Tom Hartley and team. I have only modifed it to suit the Spotlight competition. I have decided to for the code as this version will probably not go further
 
