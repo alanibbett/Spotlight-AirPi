@@ -82,6 +82,18 @@ If not, run:
 
 and you should see the above.  This tells you if your board is version 0 or 1.  This is important for the next step.
 
+##### Get the Adafruit DHT code
+For all platforms (Raspberry Pi and Beaglebone Black) make sure your system is able to compile Python extensions. On Raspbian or Beaglebone Black's Debian/Ubuntu image you can ensure your system is ready by executing:
+
+sudo apt-get update
+sudo apt-get install build-essential python-dev
+
+Go to https://github.com/adafruit/Adafruit_Python_DHT Install the library by downloading with the download link on the right, unzipping the archive, and executing:
+
+sudo python setup.py install
+
+
+
 ### Get The AirPi Code
 
 Clone this repo into your git directory (or wherever you want):
