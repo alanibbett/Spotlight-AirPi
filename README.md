@@ -145,7 +145,7 @@ enabled=on
 
 [Xively]
 filename=xively
-enabled=on
+enabled=off
 APIKey=xxxxxxxxxx
 FeedID=xxxxxxxxxx
 ```
@@ -156,7 +156,7 @@ If you have registered with https://xively.com - you can add your API Key and Fe
 
 AirPi **must** be run as root.
 
-`sudo python Airpie.py`
+`sudo python Airpi.py`
 
 If everything is working, you should see output similar to this:
 
