@@ -196,24 +196,35 @@ If you want to push the data to Xively, edit the `outputs.cfg` file:
 The start of the file should look like this:
 
 ```
-[Print]
-filename=print
-enabled=on
 
-[Xively]
+[Print]			;section heading. The [print] section prints the staus on the screen
+filename=print		; the filename of the module to load. Do not change
+enabled=on		; to switch this on set enabled to on to switch it off set it to off
+
+[Xively]		;This is another IoT service but it's not free so don't use it
 filename=xively
 enabled=off
-APIKey=xxxxxxxxxx
-FeedID=xxxxxxxxxx
-```
+APIKey=YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY
+FeedID=XXXXXXXXXX
+
+[Thingspeak]		;YAY! here is our IoT service name
+filename=thingspeak	;load the thingspeak module from the folder
+enabled=on		;Switch it on
+APIKey= xxxxxxxxxxxxxx ;This is you channel 1 WRITE API Key
+
+#you can write to your second channel by copying the entire 
+#Thingspeak section and renaming it [Thingspeak2]
+#change your write key to the channel 2 write key
 
 If you have registered with https://xively.com - you can add your API Key and Feed ID here.
-
-## Running
+```
+## 6   Running
 
 AirPi **must** be run as root.
 
 ```
+cd ~/git/Spotlight-Airpi/
+
 sudo python ./airpi.py
 
 ```
@@ -230,7 +241,7 @@ Success: Loaded sensor plugin MiCS-2710
 Success: Loaded sensor plugin MiCS-5525
 Success: Loaded sensor plugin Mic
 Success: Loaded output plugin Print
-Success: Loaded output plugin Xively
+Success: Loaded output plugin Thingspeak
 
 Time: 2014-06-04 09:10:18.942625
 Temperature: 30.2 C
