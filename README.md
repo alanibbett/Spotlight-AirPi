@@ -48,10 +48,44 @@ i2c-bcm2708
 i2c-dev
 ```
 
-If not, run:
+Exit by pressing CTRL+X, followed by y to confirm you want to save, and ⏎ (enter) to confirm the filename.
 
-`sudo i2cdetect -y 1`
+Finally, unblacklist i2c by running the following command:
 ```
+sudo nano /etc/modprobe.d/raspi-blacklist.conf
+```
+Add a `#` character  at the beginning of the line `blacklist i2c-bcm2708`. Then exit in the same way as last time.
+
+Now, reboot your Raspberry Pi:
+```
+sudo reboot
+```
+### Board Version
+
+Let's check to see which board version you have.  Run:
+```
+sudo i2cdetect -y 1
+```
+You should see this as the output:
+
+```
+     0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
+00:          -- -- -- -- -- -- -- -- -- -- -- -- -- 
+10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+20: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+30: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+40: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+50: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+60: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+70: -- -- -- -- -- -- -- 77
+```
+
+
+If not, run:
+```
+sudo i2cdetect -y 1
+```
+
 and you should see the above.  This tells you if your board is version 0 or 1.  This is important for the next step.
 
 ##### Get the Adafruit DHT code
