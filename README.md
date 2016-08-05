@@ -173,30 +173,24 @@ adcPin = 4
 sensorName =UVI
 fieldID = field3
 
-[TGS2600]			; Air pollution sensore
+[TGS2600]			     ; Air pollution sensor
 filename=analogue		; use the analogue module
 enabled=on			; switch it on
 pullDownResistance=22000	; tell the module what the pull down resistance is in ohms
-measurement=Smoke_Level		; name the reading
-adcPin=1			; tell the pi which adc pin the sensor is on
+measurement=Smoke_Level	; name the reading
+adcPin=1			     ; tell the pi which adc pin the sensor is on
 sensorName=TGS2600		; name the sensor
 fieldID=field5			; store the value in field 5.
-
-
 ```
-
-NOTE: for the BMP085 sensor if your board version is "0" change both instances of `i2cbus = 1` to `i2cbus = 0`
-
 Press CTRL+X to exit the file, when prompted, press "y" to save the file.
+NOTE: for the BMP085 sensor if your board version is "0" change both instances of `i2cbus = 1` to `i2cbus = 0`
 
 If you want to push the data to Thingspeak, edit the `outputs.cfg` file:
 
 `nano outputs.cfg`
 
 The start of the file should look like this:
-
 ```
-
 [Print]			;section heading. The [print] section prints the staus on the screen
 filename=print		; the filename of the module to load. Do not change
 enabled=on		; to switch this on set enabled to on to switch it off set it to off
@@ -207,10 +201,10 @@ enabled=off
 APIKey=YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY
 FeedID=XXXXXXXXXX
 
-[Thingspeak]		;YAY! here is our IoT service name
-filename=thingspeak	;load the thingspeak module from the folder
-enabled=on		;Switch it on
-APIKey= xxxxxxxxxxxxxx ;This is you channel 1 WRITE API Key
+[Thingspeak]		     ;YAY! here is our IoT service name
+filename=thingspeak	     ;load the thingspeak module from the folder
+enabled=on		     ;Switch it on
+APIKey= xxxxxxxxxxxxxx   ;This is you channel 1 WRITE API Key
 
 #you can write to your second channel by copying the entire 
 #Thingspeak section and renaming it [Thingspeak2]
