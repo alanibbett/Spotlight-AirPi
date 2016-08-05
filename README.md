@@ -121,15 +121,15 @@ Edit the settings file by running:
 The start of the file should look like this:
 
 ```
-BMP085-temp]			;Barometric Pressure Sensor
-filename=bmp085			;Load the correct python file	
+[BMP085-temp]			;Barometric Pressure Sensor
+filename=bmp085		;Load the correct python file	
 enabled=on			;Switch it on (only switch it on if you have the sensor)
 measurement=temp		;Tell the module to measure temperature
 i2cbus = 1			;tell Python where the module is located could be 1 or 0. Usually 1
 fieldID = field7		;Tell Thingspeak which field this reading goes in to.
 
 [BMP085-pres]			;Barometric Pressure Sensor. note we have called this a seperate section
-filename=bmp085			;load the file
+filename=bmp085		;load the file
 enabled=on			;switch it on
 measurement=pres		;tell it to measure pressure
 mslp=on				;tell the module to calulate the pressure as mean sea level pressure. Turn this off for local pressure
@@ -137,18 +137,18 @@ i2cbus = 1			;tell the module where the module is located
 altitude=40			; for mlsp we need to know our altitude
 fieldID = field4		;Tell thingspeak which field to put this in
 
-[MCP3008]			;this is the analog to digital converter module
+[MCP3008]			     ;this is the analog to digital converter module
 filename=mcp3008		;load the module for the correct module file
 enabled=on			;switch it on. Note: this module is essential for all analog to digital conversions
 
 [DHT22]				;DHT 22 humidity and temperatue module
 filename=dht22
 enabled=on
-measurement=humidity		; tell it to measure humidity
+measurement=humidity	; tell it to measure humidity
 pinNumber=4			; the the Pi which pin the module is connected to
 fieldID=field2			; tell thingspeak what field the humidity is stored in
 
-[DTH22T]			;create a new section for the DHT22 to read the temperature
+[DTH22T]			     ;create a new section for the DHT22 to read the temperature
 filename=dht22			;load the module
 enabled=on			;switch it on
 measurement=temperature		;tell it to measure temperature
@@ -189,7 +189,7 @@ NOTE: for the BMP085 sensor if your board version is "0" change both instances o
 
 Press CTRL+X to exit the file, when prompted, press "y" to save the file.
 
-If you want to push the data to Xively, edit the `outputs.cfg` file:
+If you want to push the data to Thingspeak, edit the `outputs.cfg` file:
 
 `nano outputs.cfg`
 
@@ -216,8 +216,9 @@ APIKey= xxxxxxxxxxxxxx ;This is you channel 1 WRITE API Key
 #Thingspeak section and renaming it [Thingspeak2]
 #change your write key to the channel 2 write key
 
-If you have registered with https://xively.com - you can add your API Key and Feed ID here.
 ```
+For this project we will keep the xively feed off and switch on the thingspeak module.
+
 ## 6   Running
 
 AirPi **must** be run as root.
