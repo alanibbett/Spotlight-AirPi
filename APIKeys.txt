@@ -1,4 +1,6 @@
 Reading from file channelList.xml
+Be careful to use the write key for your airpi only. You can
+read from anyone elses but only write to yours.
 
 ************************************************************
 Channel ID : 138751
