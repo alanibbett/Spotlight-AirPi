@@ -12,9 +12,9 @@ All of this code is based on the work of Tom Hartley and team. I have only modif
 Some of the files are based off code for the Raspberry Pi written by Adafruit: https://github.com/adafruit/Adafruit-Raspberry-Pi-Python-Code
 
 For installation instructions, see http://spotlight16.dow.catholic.edu.au/competitions/raspberrypi
-## Installation
+##  Installation
 
-### Prerequisites
+### 1 Prerequisites
 For the Raspberry Pi make sure your system is able to compile Python extensions and you also need some other modules to drive the airpi board. You will need to install the following dependencies:
 
 ```
@@ -30,7 +30,7 @@ sudo pip install rpi.gpio requests
 
 This version of the Airpi Code does not require the ees code
 
-#### i2c
+### 2 Set up the i2c code
 
 To set up i2c, first add your user to the i2c group.  For example, if your username is "pi":
 ```
@@ -61,7 +61,7 @@ Now, reboot your Raspberry Pi:
 ```
 sudo reboot
 ```
-### Board Version
+##### 2.1 Board Version
 
 Let's check to see which board version you have.  Run:
 ```
@@ -89,7 +89,7 @@ sudo i2cdetect -y 0
 
 and you should see the above.  This tells you if your board is version 0 or 1.  This is important for the "configuring the airpi" step.
 
-### Get the Adafruit DHT code
+### 3 Get the Adafruit DHT code
 Go to https://github.com/adafruit/Adafruit_Python_DHT Install the library by downloading with: 
 ```
 cd ~/git
@@ -102,7 +102,7 @@ sudo python setup.py install
 ```
 
 
-### Get The AirPi Code
+### 4 Get The AirPi Code
 
 Clone this repo into your git directory (or wherever you want):
 
@@ -112,7 +112,7 @@ git clone https://github.com/alanibbett/Spotlight-AirPi.git
 cd Spotlight-AirPi
 ```
 
-### Configuring
+### 5 Configuring
 
 Edit the settings file by running:
 
