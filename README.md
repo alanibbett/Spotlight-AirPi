@@ -11,7 +11,7 @@ All of this code is based on the work of Tom Hartley and team. I have only modif
 
 Some of the files are based off code for the Raspberry Pi written by Adafruit: https://github.com/adafruit/Adafruit-Raspberry-Pi-Python-Code
 
-For installation instructions, see http://spotlight16.dow.catholic.edu.au/competitions/raspberrypi
+For competition instructions, see http://spotlight16.dow.catholic.edu.au/competitions/raspberrypi
 ##  Installation
 
 ### 1 Prerequisites
