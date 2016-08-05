@@ -90,8 +90,13 @@ sudo i2cdetect -y 0
 and you should see the above.  This tells you if your board is version 0 or 1.  This is important for the next step.
 
 ##### Get the Adafruit DHT code
- On Raspbian or Beaglebone Black's Debian/Ubuntu image you can ensure your system is ready by executing:
-Go to https://github.com/adafruit/Adafruit_Python_DHT Install the library by downloading with the download link on the right, unzipping the archive, and executing:
+Go to https://github.com/adafruit/Adafruit_Python_DHT Install the library by downloading with: 
+```
+cd ~/git
+git clone https://github.com/adafruit/Adafruit_Python_DHT.git
+cd Adafruit_Python_DHT
+```
+and executing:
 ```
 sudo python setup.py install
 ```
