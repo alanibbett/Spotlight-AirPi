@@ -18,62 +18,34 @@ For installation instructions, see http://spotlight16.dow.catholic.edu.au/compet
 
 You will need to install the following dependencies:
 
-`sudo apt-get install git-core python-dev python-pip python-smbus libxml2-dev libxslt1-dev python-lxml i2c-tools`
-
-and
-
-`sudo pip install rpi.gpio requests`
-
-This version of the Airpi Code does not require the ees code
+```
+sudo apt-get install git-core python-dev python-pip python-smbus libxml2-dev libxslt1-dev python-lxml i2c-tools
 ```
 
-### i2c
+and
+```
+sudo pip install rpi.gpio requests
+```
+
+This version of the Airpi Code does not require the ees code
+
+#### i2c
 
 To set up i2c, first add your user to the i2c group.  For example, if your username is "pi":
-
-`sudo adduser pi i2c`
+```
+sudo adduser pi i2c
+```
 
 Now, add the modules needed.
-
-`sudo nano /etc/modules`
+```
+sudo nano /etc/modules
+```
 
 Add the following two lines to the end of the file:
 
 ```
 i2c-bcm2708
 i2c-dev
-```
-
-Exit by pressing CTRL+X, followed by y to confirm you want to save, and ⏎ (enter) to confirm the filename.
-
-Finally, unblacklist i2c by running the following command:
-
-`sudo nano /etc/modprobe.d/raspi-blacklist.conf`
-
-Add a `#` character  at the beginning of the line `blacklist i2c-bcm2708`. Then exit in the same way as last time.
-
-Now, reboot your Raspberry Pi:
-
-`sudo reboot`
-
-### Board Version
-
-Let's check to see which board version you have.  Run:
-
-`sudo i2cdetect -y 0`
-
-You should see this as the output:
-
-```
-     0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
-00:          -- -- -- -- -- -- -- -- -- -- -- -- -- 
-10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
-20: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
-30: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
-40: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
-50: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
-60: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
-70: -- -- -- -- -- -- -- 77
 ```
 
 If not, run:
