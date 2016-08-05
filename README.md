@@ -15,11 +15,12 @@ For installation instructions, see http://spotlight16.dow.catholic.edu.au/compet
 ## Installation
 
 ### Prerequisites
-
-You will need to install the following dependencies:
+For the Raspberry Pi make sure your system is able to compile Python extensions and you also need some other modules to drive the airpi board. You will need to install the following dependencies:
 
 ```
-sudo apt-get install git-core python-dev python-pip python-smbus libxml2-dev libxslt1-dev python-lxml i2c-tools
+cd ~
+sudo apt-get update
+sudo apt-get install build-essential git-core python-dev python-pip python-smbus libxml2-dev libxslt1-dev python-lxml i2c-tools
 ```
 
 and
@@ -83,17 +84,13 @@ You should see this as the output:
 
 If not, run:
 ```
-sudo i2cdetect -y 1
+sudo i2cdetect -y 0
 ```
 
 and you should see the above.  This tells you if your board is version 0 or 1.  This is important for the next step.
 
 ##### Get the Adafruit DHT code
-For all platforms (Raspberry Pi and Beaglebone Black) make sure your system is able to compile Python extensions. On Raspbian or Beaglebone Black's Debian/Ubuntu image you can ensure your system is ready by executing:
-```
-sudo apt-get update
-sudo apt-get install build-essential python-dev
-```
+ On Raspbian or Beaglebone Black's Debian/Ubuntu image you can ensure your system is ready by executing:
 Go to https://github.com/adafruit/Adafruit_Python_DHT Install the library by downloading with the download link on the right, unzipping the archive, and executing:
 ```
 sudo python setup.py install
@@ -162,7 +159,10 @@ If you have registered with https://xively.com - you can add your API Key and Fe
 
 AirPi **must** be run as root.
 
-`sudo python Airpi.py`
+```
+sudo python ./airpi.py
+
+```
 
 If everything is working, you should see output similar to this:
 
