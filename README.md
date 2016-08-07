@@ -110,6 +110,7 @@ and you should see the above.  This tells you if your board is version 0 or 1.  
 ### 3 Get the Adafruit DHT code
 Go to https://github.com/adafruit/Adafruit_Python_DHT Install the library by downloading with: 
 ```
+mkdir ~/git
 cd ~/git
 git clone https://github.com/adafruit/Adafruit_Python_DHT.git
 cd Adafruit_Python_DHT
