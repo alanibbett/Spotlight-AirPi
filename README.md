@@ -63,6 +63,22 @@ Now, reboot your Raspberry Pi:
 ```
 sudo reboot
 ```
+Note in the latest version of raspian "jessie" you need to enable i2c from the *raspi-config* utility
+`sudo raspi-config`
+
+Now complete the following steps :
+
+Select `Advanced Options`
+Select `I2C`
+The screen will ask if you want the ARM I2C interface to be enabled :
+
+Select `Yes`
+Select `Ok`
+Select `Finish` to return to the command line
+When you next reboot the I2C module will be loaded.
+
+You can do the same for the SPI interface as well.
+
 ##### 2.1 Board Version
 
 Let's check to see which board version you have.  Run:
