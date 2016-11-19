@@ -37,6 +37,8 @@ class Analogue(sensor.Sensor):
 		
 	def getVal(self):
 		result = self.adc.readADC(self.adcPin)
+		#result = 0 #for debugging only
+		#print "falsly setting result to : " + str(result)
 		if result==0:
 			print "Check wiring for the " + self.sensorName + " measurement, no voltage detected on ADC input " + str(self.adcPin)
 			#return None
@@ -45,12 +47,20 @@ class Analogue(sensor.Sensor):
 			#return None
 		vin = 3.3
 		vout = float(result)/1023 * vin
-	
+
 		if self.pullDown!=None:
 			#Its a pull down resistor
-			resOut = (self.pullDown*vin)/vout - self.pullDown
+			if (result==0) or (result==1023):
+				resOut = 0
+				
+			else:
+				resOut = (self.pullDown*vin)/vout - self.pullDown
+
 		elif self.pullUp!=None:
-			resOut = self.pullUp/((vin/vout)-1)
+			if (result==0) or  (result==1023):
+				resOut = 0
+			else:
+				resOut = self.pullUp/((vin/vout)-1)
 		else:
 			resOut = vout*1000
 		if self.valName == "UVI":
@@ -59,8 +69,11 @@ class Analogue(sensor.Sensor):
 			UVI = sensorVoltage*(5.25/20) # (5.25/20 is the slop of the graph from the data sheet)
 			resOut = UVI
 		if self.valName == "Lux":
-			alpha = ((math.log(resOut/float(1000))-4.125)/-0.6704)
-			lux = math.exp(alpha)
+			if resOut==0:
+				lux=0
+			else:
+				alpha = ((math.log(resOut/float(1000))-4.125)/-0.6704)
+				lux = math.exp(alpha)
 			resOut = lux 
 		return resOut
 		
